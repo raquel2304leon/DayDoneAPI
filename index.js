@@ -6,7 +6,10 @@ const app = express();
 
 // Permitir recibir datos en formato JSON
 app.use(express.json());
-
+// Permitir peticiones desde React
+const cors = require('cors');
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 // ── CONEXION A MYSQL ──────────────────────────────────────
 const conexion = mysql.createConnection({
     host: 'localhost',
